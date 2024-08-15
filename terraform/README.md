@@ -22,11 +22,11 @@ Default region name [None]: .....
 Default output format [None]: ....
 ```
 4. Create providers.tf file
-   ```bash
-   # Which containes the provider information
-   ```
+```bash
+# Which containes the provider information
+```
 5. Create main.tf file
- ```bash
+```bash
 # That containes the resources that you will build ex: EC2 instence specs
 ```
 6. Create security.tf file
@@ -35,7 +35,7 @@ Default output format [None]: ....
 # Also the keypair that will be used to connect on the ec2 instence
 ```
 7. Create variables.tf file
- ```bash
+```bash
 # That containes all the variables with the data that you should not expose to public
 # Make sure you generate SSH key if you don't have one and added into the variables.tf file ssh-keygen 
 ```
@@ -47,9 +47,9 @@ Default output format [None]: ....
 ```
 9. Run terraform commands to pull plugins of provider and apply infrastructure.
 ```bash
-   $ terraform init
-   $ terraform plan
-   $ terraform apply   
+$ terraform init
+$ terraform plan
+$ terraform apply   
 ```
    
    
