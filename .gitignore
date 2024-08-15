@@ -1,0 +1,5 @@
+terraform/mykey.pem
+terraform/terraform.tfstate
+terraform/terraform.varstf
+terraform/.terraform/*
+
