@@ -40,10 +40,9 @@ resource "tls_private_key" "pk" {
 }
 
 resource "aws_key_pair" "UbuntuKP" {
-  key_name = "mykey"
-  public_key = var.public_key
+  public_key = file("/home/zeinab/.ssh/id_rsa.pub")
 
   provisioner "local-exec" {
-    command = "echo '${tls_private_key.pk.private_key_pem}' > ./mykey.pem"
+    command = "echo '${tls_private_key.pk.private_key_pem}' > ./EC2_key.pem"
   }
 }
