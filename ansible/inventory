@@ -1,0 +1,1 @@
+EC2_Server ansible_host=ec2-13-61-34-148.eu-north-1.compute.amazonaws.com ansible_user=ubuntu 
