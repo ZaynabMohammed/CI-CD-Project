@@ -1,97 +1,30 @@
 - name: Setup Jenkins, Docker, Minikube, and kubectl on Ubuntu
-  hosts: all
+  hosts: EC2_Server
   become: yes
 
-  tasks:
-    - name: Update apt cache
+  tasks: 
+
+    - name: Download Jenkins keyring
+      become_user: ubuntu
+      command: sudo wget -O /usr/share/keyrings/jenkins-keyring.asc https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
+
+    - name: Add Jenkins repository to sources list
+      become_user: ubuntu
+      command: echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc]" \
+               https://pkg.jenkins.io/debian-stable binary/ |sudo tee /etc/apt/sources.list.d/jenkins.list > /dev/null
+
+               
+    - name: Update apt package cache
       apt:
         update_cache: yes
 
-    - name: Install essential packages
+    - name: Install Jenkins package  
       apt:
-        name:
-          - apt-transport-https
-          - ca-certificates
-          - curl
-          - software-properties-common
-          - gnupg2
-        state: present
-
-    - name: Add Jenkins repository key
-      apt_key:
-        url: https://pkg.jenkins.io/debian/jenkins.io.key
-        state: present
-
-    - name: Add Jenkins repository
-      apt_repository:
-        repo: deb http://pkg.jenkins.io/debian-stable binary/
-        state: present
-
-    - name: Install Jenkins
-      apt:
+        name: jenkins 
+        state: latest
+      
+    - name: Start jenkins Service  
+      service:
         name: jenkins
-        state: present
-
-    - name: Start and enable Jenkins service
-      systemd:
-        name: jenkins
-        enabled: yes
-        state: started
-
-    - name: Install Docker
-      apt:
-        name:
-          - docker.io
-        state: present
-
-    - name: Add Jenkins user to Docker group
-      user:
-        name: jenkins
-        groups: docker
-        append: yes
-
-    - name: Add Kubernetes apt key
-      apt_key:
-        url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
-        state: present
-
-    - name: Add Kubernetes apt repository
-      apt_repository:
-        repo: deb http://apt.kubernetes.io/ kubernetes-xenial main
-        state: present
-
-    - name: Install kubectl
-      apt:
-        name: kubectl
-        state: present
-
-    - name: Download Minikube binary
-      get_url:
-        url: https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
-        dest: /usr/local/bin/minikube
-        mode: '0755'
-
-    - name: Ensure Jenkins user can run Docker commands without sudo
-      copy:
-        dest: /etc/sudoers.d/jenkins
-        content: "jenkins ALL=(ALL) NOPASSWD: /usr/bin/docker\n"
-
-    - name: Start Minikube
-      become: no
-      become_user: jenkins
-      command: minikube start --driver=docker
-      environment:
-        CHANGE_MINIKUBE_NONE_USER: "true"
-        HOME: "/var/lib/jenkins"
-        USER: "jenkins"
-
-    - name: Set kubeconfig path for Jenkins
-      shell: echo "export KUBECONFIG=/var/lib/jenkins/.kube/config" >> /var/lib/jenkins/.bashrc
-      become_user: jenkins
-
-    - name: Ensure Jenkins user owns .kube directory
-      file:
-        path: /var/lib/jenkins/.kube
-        owner: jenkins
-        group: jenkins
-        recurse: yes
+        enabled: yes  
+        state: started    
