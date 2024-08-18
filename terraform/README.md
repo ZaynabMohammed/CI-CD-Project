@@ -37,13 +37,6 @@ Default output format [None]: ....
 7. Create variables.tf file
 ```bash
 # That containes all the variables with the data that you should not expose to public
-# Make sure you generate SSH key if you don't have one and added into the variables.tf file ssh-keygen 
-```
-8. Create terraform.tfvars file
-```bash
-# That contains the variables that you will not share it on the version control
-# Add your public ssh key to the terraform.tfvars
-# Remember to add it to .gitignore file
 ```
 9. Run terraform commands to pull plugins of provider and apply infrastructure.
 ```bash
