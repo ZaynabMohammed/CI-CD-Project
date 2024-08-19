@@ -36,18 +36,18 @@ pipeline {
 ### Step 2   
 - Check that `Deployment` and `service` are running inside EC2_instance
   
-   1. SSH into EC2-Instance using below command.
+   1. SSH into EC2-Instance using below command.  
       
    ```bash
     $ ssh -i EC2_key.pm ubuntu@EC2_Public_IPv4_address
    ```
-   2. Switch user to jenkins, so that you can deal with cluster  
-      
+   2. Switch user to jenkins, so that you can deal with cluster.  
+        
    ```bash
     $ sudo su - jenkins
    ```
-   3. Using `kubectl` to get `Pods`, `Deployment`, `replicaset`  and `service`
-      
+   3. Using `kubectl` to get `Pods`, `Deployment`, `replicaset`  and `service`.  
+        
    ```bash
     $ kubectl get all
     NAME                                    READY   STATUS    RESTARTS   AGE
