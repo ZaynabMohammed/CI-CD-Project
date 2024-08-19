@@ -1,1 +1,1 @@
-EC2_Server ansible_host=16.170.244.108 ansible_ssh_private_key_file=../terraform/demo.pem
+EC2_Server ansible_host='EC2-Public-ip' ansible_ssh_private_key_file=../terraform/demo.pem
