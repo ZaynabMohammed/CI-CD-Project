@@ -38,7 +38,7 @@ ok: [EC2_Server]
 PLAY RECAP *************************************************************************************************************************************************************
 EC2_Server                 : ok=7    changed=4    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
 ````
-2- Run ansible `playbook-jenkins.yml` to configure jenkins inside Ec2-Instance.
+3- Run ansible `playbook-jenkins.yml` to configure jenkins inside Ec2-Instance.
 ```bash
 $ ansible-playbook playbook-jenkins.yml
 PLAY [Setup Jenkins] ***************************************************************************************************************************************************
@@ -67,7 +67,7 @@ changed: [EC2_Server]
 PLAY RECAP *************************************************************************************************************************************************************
 EC2_Server                 : ok=7    changed=5    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
 ```
-2- Run ansible `playbook-minikube.yml` to configure minikube & kubectl inside Ec2-Instance.
+4- Run ansible `playbook-minikube.yml` to configure minikube & kubectl inside Ec2-Instance.
 ```bash
 $ ansible-playbook playbook-minikube.yml
 PLAY [Install Minikube and kubectl] ************************************************************************************************************************************
@@ -86,4 +86,25 @@ changed: [EC2_Server]
 
 PLAY RECAP *************************************************************************************************************************************************************
 EC2_Server                 : ok=4    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+```
+5- Run ansible `playbook.yml` to Enable `jenkins` user to use docker & K8s Cluster.
+```bash
+$ ansible-playbook playbook.yml
+
+PLAY [Enable jenkins to use docker & minikube] ***********************************************************************************************************
+
+TASK [Gathering Facts] ***********************************************************************************************************************************
+ok: [EC2_Server]
+
+TASK [Add Jenkins user to Docker group] ******************************************************************************************************************
+changed: [EC2_Server]
+
+TASK [Ensure Jenkins user can run Docker commands without sudo] ******************************************************************************************
+changed: [EC2_Server]
+
+TASK [Start Minikube with jenkins user] ******************************************************************************************************************
+changed: [EC2_Server]
+
+PLAY RECAP ***********************************************************************************************************************************************
+EC2_Server                 : ok=4    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
 ```
