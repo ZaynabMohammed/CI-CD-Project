@@ -1,4 +1,4 @@
 terraform/EC2_key.pem
-terraform/terraform.tfstate
+terraform/terraform.tfstate*
 terraform/.terraform/*
 

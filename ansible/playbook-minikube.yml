@@ -1,0 +1,13 @@
+- name: Install Minikube and kubectl
+  hosts: EC2_Server
+  become: yes
+  tasks:
+
+    - name: Download Minikube Debian
+      command: curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube_latest_amd64.deb
+
+    - name: Install Minikube Debian
+      command: sudo dpkg -i minikube_latest_amd64.deb
+
+    - name: Download kubectl
+      command: sudo snap install kubectl --classic

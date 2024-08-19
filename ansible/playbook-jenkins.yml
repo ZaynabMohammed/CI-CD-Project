@@ -1,4 +1,4 @@
-- name: Setup Jenkins, Docker, Minikube, and kubectl on Ubuntu
+- name: Setup Jenkins
   hosts: EC2_Server
   become: yes
 
@@ -10,19 +10,26 @@
 
     - name: Add Jenkins repository to sources list
       become_user: ubuntu
-      command: echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc]" \
+      shell: echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc]" \
                https://pkg.jenkins.io/debian-stable binary/ |sudo tee /etc/apt/sources.list.d/jenkins.list > /dev/null
 
-               
+    - name: Install fontconfig and openjdk-17-jre
+      apt:
+        name:
+          - fontconfig
+          - openjdk-17-jre
+        update_cache: yes
+        state: present
+
     - name: Update apt package cache
       apt:
         update_cache: yes
 
     - name: Install Jenkins package  
       apt:
-        name: jenkins 
+        name: jenkins
         state: latest
-      
+
     - name: Start jenkins Service  
       service:
         name: jenkins
