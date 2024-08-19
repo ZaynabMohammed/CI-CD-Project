@@ -2,7 +2,8 @@
 ## 1. Access Jenkins through browser:  
 - In the browser's address bar, enter `http://EC2_Public_IPv4_address:8080` and press Enter.
   
-<img src="https://github.com/ZaynabMohammed/CI-CD-Project/blob/master/Jenkins/jenkins.PNG" width="900" height="620" >
+<img src="https://github.com/ZaynabMohammed/CI-CD-Project/blob/master/Jenkins/jenkins.PNG" width="900" height="620" >  
+
 ## 2. Pipeline Job   
 ### Step 1:  
 - Run a pipeline Job with below script, using below Repository, [https://github.com/ZaynabMohammed/K8s_Tasks.git](https://github.com/ZaynabMohammed/K8s_Tasks.git) .  
