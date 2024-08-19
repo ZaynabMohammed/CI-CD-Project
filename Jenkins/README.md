@@ -1,10 +1,11 @@
 # Jenkins Pipeline Job to Run K8s-Deployment
-1. Access Jenkins through browser: In the browser's address bar, enter `http://EC2_Public_IPv4_address:8080` and press Enter.
+## 1. Access Jenkins through browser:  
+- In the browser's address bar, enter `http://EC2_Public_IPv4_address:8080` and press Enter.
+  
 <img src="https://github.com/ZaynabMohammed/CI-CD-Project/blob/master/Jenkins/jenkins.PNG" width="900" height="620" >
-2. Pipeline Job  
-Step 1:  
-- Run a pipeline Job with below script, using below Repository
-  [https://github.com/ZaynabMohammed/K8s_Tasks.git](https://github.com/ZaynabMohammed/K8s_Tasks.git)  
+## 2. Pipeline Job   
+### Step 1:  
+- Run a pipeline Job with below script, using below Repository, [https://github.com/ZaynabMohammed/K8s_Tasks.git](https://github.com/ZaynabMohammed/K8s_Tasks.git) .  
    
 ```bash
 pipeline {
@@ -31,8 +32,7 @@ pipeline {
     }
 }
 ```
-
-Step 2:   
+### Step 2   
 - Check that `Deployment` and `service` are running inside EC2_instance
   
    1. SSH into EC2-Instance using below command.
