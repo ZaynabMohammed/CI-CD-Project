@@ -4,6 +4,7 @@
 2. Pipeline Job  
 Step 1:  
 - Run a pipeline Job with below script, using Repository [https://github.com/ZaynabMohammed/K8s_Tasks.git](https://github.com/ZaynabMohammed/K8s_Tasks.git)
+   
 ```bash
 pipeline {
     agent any
@@ -19,7 +20,7 @@ pipeline {
                 script {
                     dir('task1') {
                         sh '''
-							             kubectl apply -f deploy_nginx.yml
+                           kubectl apply -f deploy_nginx.yml
                            kubectl apply -f service_nginx.yml
                         '''
                     }
@@ -29,7 +30,8 @@ pipeline {
     }
 }
 ```
-Step 2:  
+
+Step 2:   
 - Check that `Deployment` and `service` are running inside EC2_instance
    1. SSH into EC2-Instance using below command.
    ```bash
