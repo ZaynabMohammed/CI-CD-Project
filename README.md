@@ -1,13 +1,12 @@
 # CI-CD-Project
 
-
-<div style="display: flex; justify-content: space-between;">
-  <img src="https://github.com/ZaynabMohammed/CI-CD-Project/blob/master/AWS.png" alt="Image 1" width="45%">
-  <img src="https://github.com/ZaynabMohammed/CI-CD-Project/blob/master/Terraform.png" alt="Image 2" width="45%">
-  <img src="https://github.com/ZaynabMohammed/CI-CD-Project/blob/master/Ansible.png" alt="Image 3" width="45%">
-  <img src="https://github.com/ZaynabMohammed/CI-CD-Project/blob/master/K8S.png" alt="Image 4" width="45%">
-  <img src="https://github.com/ZaynabMohammed/CI-CD-Project/blob/master/docker.png" alt="Image 5" width="45%">
-  <img src="https://github.com/ZaynabMohammed/CI-CD-Project/blob/master/jenkins.png" alt="Image 6" width="45%">
+<div style="display: flex; justify-content: space-between; align-items: center;">
+  <img src="https://www.vectorlogo.zone/logos/ansible/ansible-ar21.svg"; alt="Ansible" width="100" height="100">
+  <img src="https://www.vectorlogo.zone/logos/terraformio/terraformio-ar21.svg"; alt="Terraform" width="100" height="100">
+  <img src="https://www.vectorlogo.zone/logos/docker/docker-official.svg"; alt="Docker" width="100" height="100">
+  <img src="https://www.vectorlogo.zone/logos/kubernetes/kubernetes-ar21.svg"; alt="Kubernetes" width="100" height="100">
+  <img src="https://www.vectorlogo.zone/logos/amazon_aws/amazon_aws-ar21.svg"; alt="AWS" width="100" height="100">
+  <img src="https://www.vectorlogo.zone/logos/jenkins/jenkins-ar21.svg"; alt="Jenkins" width="100" height="100">
 </div>
 
 In this repo:
