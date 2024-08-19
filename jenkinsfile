@@ -1,0 +1,23 @@
+pipeline {
+    agent any
+	
+    stages {
+	    stage('Git') {
+            steps {
+                git 'https://github.com/ZaynabMohammed/K8s_Tasks.git'
+            }
+        }
+        stage('Run deploy_nginx.yml') {
+            steps {
+                script {
+                    dir('task1') {
+                        sh '''
+			   kubectl apply -f deploy_nginx.yml
+			   kubectl apply -f service_nginx.yml
+                        '''
+                    }
+                }
+            }
+        }
+    }
+}
