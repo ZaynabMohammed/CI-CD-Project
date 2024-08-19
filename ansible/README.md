@@ -1,6 +1,5 @@
 # Using Ansible-playbook to configure EC2-Instance
-1- Get `instance_public_ip` from terraform output to add it in inventory &&  
-      use `EC2_key.pem` to ssh into Ec2-Instance.
+1- Get `instance_public_ip` from terraform output to add it in inventory && use `EC2_key.pem` to ssh into Ec2-Instance.
 ```bash
 EC2_Server ansible_host=instance_public_ip ansible_ssh_private_key_file=../terraform/EC2_key.pem
 ```
@@ -41,6 +40,7 @@ EC2_Server                 : ok=7    changed=4    unreachable=0    failed=0    s
 ````
 2- Run ansible `playbook-jenkins.yml` to configure jenkins inside Ec2-Instance.
 ```bash
+$ ansible-playbook playbook-jenkins.yml
 PLAY [Setup Jenkins] ***************************************************************************************************************************************************
 
 TASK [Gathering Facts] *************************************************************************************************************************************************
@@ -69,6 +69,7 @@ EC2_Server                 : ok=7    changed=5    unreachable=0    failed=0    s
 ```
 2- Run ansible `playbook-minikube.yml` to configure minikube & kubectl inside Ec2-Instance.
 ```bash
+$ ansible-playbook playbook-minikube.yml
 PLAY [Install Minikube and kubectl] ************************************************************************************************************************************
 
 TASK [Gathering Facts] *************************************************************************************************************************************************
