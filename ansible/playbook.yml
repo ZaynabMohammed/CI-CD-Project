@@ -1,0 +1,19 @@
+- name: Enable jenkins to use docker & minikube
+  hosts: EC2_Server
+  become: yes
+  tasks:
+    - name: Add Jenkins user to Docker group
+      user:
+        name: jenkins
+        groups: docker
+        append: yes
+
+    - name: Ensure Jenkins user can run Docker commands without sudo
+      copy:
+        dest: /etc/sudoers.d/jenkins 
+        content: "jenkins ALL=(ALL) NOPASSWD:/usr/bin/docker\n"
+
+    - name: Start Minikube with jenkins user
+      shell: sudo su - jenkins -c 'minikube start --driver=docker' 
+
+
