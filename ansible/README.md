@@ -1,6 +1,6 @@
 # Using Ansible-playbook to configure EC2-Instance
 1- Get `instance_public_ip` from terraform output to add it in inventory &&  
-   use `EC2_key.pem` to ssh Ec2-Instance.
+      use `EC2_key.pem` to ssh into Ec2-Instance.
 ```bash
 EC2_Server ansible_host=instance_public_ip ansible_ssh_private_key_file=../terraform/EC2_key.pem
 ```
