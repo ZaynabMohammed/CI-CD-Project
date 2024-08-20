@@ -12,4 +12,8 @@
 ## In this Repo:
 1. Create an `EC2_Instance` using `Terraform`
 2. Configure this `EC2_Instance` with `Ansible`, to setup `jenkins`,`Docker`,`Minikube`,`Kubectl` on it.
-3. Create a `pipeline` Job to run `K8s-deployment` with `jenkins`
+-   `playbook-docker.yml`: Ansible-playbook to configure Docker on EC2.
+-   `playbook-jenkins.yml`: Ansible-playbook to configure Jenkins on EC2.
+-   `playbook-minikube.yml`: Ansible-playbook to configure Minikube & Kubectl on EC2.
+-   `playbook.yml`: Ansible-playbook to make sure that jenkins can use docker & K8s Cluster.
+3. Create a `pipeline` Job within `Jenkins` to orchestrate the deployment of Nginx application onto `K8s-cluster`.
