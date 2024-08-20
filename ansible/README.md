@@ -108,3 +108,23 @@ changed: [EC2_Server]
 PLAY RECAP ***********************************************************************************************************************************************
 EC2_Server                 : ok=4    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
 ```
+6- Check that everything is running inside EC2-Instance.  
+
+1. Access Jenkins through browser: In the browser's address bar, enter http://EC2_Public_IPv4_address:8080 and press Enter.
+
+2. Switch to jenkins user & Check that minikube is up based on docker driver.
+```bash
+$ docker images
+REPOSITORY       TAG       IMAGE ID       CREATED        SIZE
+kicbase/stable   v0.0.44   5a6e59a9bdc0   3 months ago   1.26GB
+```
+3. Check minikube status.
+```bash
+$ minikube status
+minikube
+type: Control Plane
+host: Running
+kubelet: Running
+apiserver: Running
+kubeconfig: Configured
+```
