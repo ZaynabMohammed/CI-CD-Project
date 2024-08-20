@@ -1,4 +1,5 @@
-# Using Ansible-playbook to configure EC2-Instance
+# Using Ansible-playbooks to configure EC2-Instance
+----------------------------------------------------
 1- Get `instance_public_ip` from terraform output to add it in inventory && use `EC2_key.pem` to ssh into Ec2-Instance.
 ```bash
 EC2_Server ansible_host=instance_public_ip ansible_ssh_private_key_file=../terraform/EC2_key.pem
@@ -110,7 +111,8 @@ EC2_Server                 : ok=4    changed=1    unreachable=0    failed=0    s
 ```
 6- Check that everything is running inside EC2-Instance.  
 
-1. Access Jenkins through browser: In the browser's address bar, enter http://EC2_Public_IPv4_address:8080 and press Enter.
+1. Access Jenkins through browser.
+- In the browser's address bar, enter `http://EC2_Public_IPv4_address:8080` and press Enter.
 
 2. Switch to jenkins user & Check that minikube is up based on docker driver.
 ```bash
